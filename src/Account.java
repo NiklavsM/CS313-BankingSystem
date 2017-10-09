@@ -1,13 +1,13 @@
 public interface Account {
-    String getAccountType();
+    //String getAccountType();
 
-    double getBalance();
+    //double getBalance();
 
-    Details getOwnerDetails();
+    //Details getOwnerDetails();
 
-    void setAccountType(String type);
+    //void setAccountType(String type);
 
-    void setBalance(double newBalance);
+    //void setBalance(double newBalance);
 
-    void setOwnerDetails(Details details);
+    //void setOwnerDetails(Details details);
 }

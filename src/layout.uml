@@ -3,68 +3,57 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="513.425" y="755.5">BankSystemManager</node>
-    <node x="446.5" y="412.0">Account</node>
-    <node x="512.0" y="1032.5">SavingAccount</node>
-    <node x="240.2375" y="0.0">Details</node>
-    <node x="0.0" y="992.0">CoDAccount</node>
-    <node x="237.425" y="661.0">BankAccount</node>
-    <node x="256.0" y="992.0">CheckingAccount</node>
+    <node x="388.0" y="488.0">BankSystemManager</node>
+    <node x="397.0" y="156.5">Account</node>
+    <node x="682.1428571428571" y="151.42857142857136">AdminAccount</node>
+    <node x="99.0" y="397.0">BankAccount</node>
+    <node x="0.0" y="716.0">SavingAccount</node>
+    <node x="87.875" y="0.0">Details</node>
+    <node x="167.0" y="716.0">CoDAccount</node>
+    <node x="320.0" y="716.0">CheckingAccount</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="BankAccount" target="Details">
-      <point x="32.0" y="-140.5" />
-      <point x="397.425" y="641.0" />
-      <point x="353.0" y="641.0" />
-      <point x="353.0" y="392.0" />
-      <point x="389.6125" y="392.0" />
-      <point x="29.875" y="181.0" />
-    </edge>
     <edge source="BankSystemManager" target="Account">
-      <point x="65.5" y="-46.0" />
-      <point x="709.925" y="641.0" />
-      <point x="681.5" y="641.0" />
-      <point x="94.0" y="99.5" />
+      <point x="-60.5" y="-43.5" />
+      <point x="0.0" y="17.0" />
+    </edge>
+    <edge source="BankAccount" target="Details">
+      <point x="-100.875" y="-134.5" />
+      <point x="132.625" y="372.0" />
+      <point x="125.20833333333331" y="372.0" />
+      <point x="-74.66666666666667" y="173.5" />
     </edge>
     <edge source="SavingAccount" target="BankAccount">
-      <point x="0.0" y="-18.5" />
-      <point x="592.5" y="967.0" />
-      <point x="450.7583333333333" y="967.0" />
-      <point x="85.33333333333331" y="140.5" />
+      <point x="0.0" y="-17.0" />
+      <point x="73.5" y="691.0" />
+      <point x="143.83333333333331" y="691.0" />
+      <point x="-89.66666666666669" y="134.5" />
     </edge>
     <edge source="CheckingAccount" target="BankAccount">
-      <point x="0.0" y="-59.0" />
-      <point x="374.0" y="967.0" />
-      <point x="365.425" y="967.0" />
-      <point x="0.0" y="140.5" />
-    </edge>
-    <edge source="Account" target="Details">
-      <point x="0.0" y="-99.5" />
-      <point x="587.5" y="392.0" />
-      <point x="449.3625" y="392.0" />
-      <point x="89.625" y="181.0" />
+      <point x="0.0" y="-17.0" />
+      <point x="401.5" y="691.0" />
+      <point x="323.1666666666667" y="691.0" />
+      <point x="89.66666666666669" y="134.5" />
     </edge>
     <edge source="BankAccount" target="Account">
-      <point x="96.0" y="-140.5" />
-      <point x="461.425" y="641.0" />
-      <point x="493.5" y="641.0" />
-      <point x="-94.0" y="99.5" />
+      <point x="100.875" y="-134.5" />
+      <point x="334.375" y="372.0" />
+      <point x="414.1666666666667" y="372.0" />
+      <point x="-34.333333333333314" y="17.0" />
     </edge>
     <edge source="CoDAccount" target="BankAccount">
-      <point x="0.0" y="-59.0" />
-      <point x="118.0" y="967.0" />
-      <point x="280.0916666666667" y="967.0" />
-      <point x="-85.33333333333331" y="140.5" />
+      <point x="0.0" y="-17.0" />
+      <point x="0.0" y="134.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="265.4999999999999" y="510.08333333333337" />
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="543.5714285714284" y="459.57142857142856" />
   <SelectedNodes>
-    <node>BankSystemManager</node>
+    <node>AdminAccount</node>
   </SelectedNodes>
   <Categories>
-    <Category>Methods</Category>
     <Category>Fields</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
