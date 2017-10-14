@@ -1,9 +1,9 @@
-public class BankAccount implements Account {
+public class BankAccount implements IAccount {
 
-    private Details details;
     private double balance;
-    private String accountType;
+    public BankAccount(){
 
+    }
     @Override
     public void setAccountType(String type) {
 
@@ -14,14 +14,8 @@ public class BankAccount implements Account {
 
     }
 
-    @Override
-    public void setOwnerDetails(Details details) {
-
-    }
-
     public BankAccount(double balance) {
         setAccountType("Bank");
-        setOwnerDetails(new Details());
     }
 
 
@@ -33,10 +27,5 @@ public class BankAccount implements Account {
     @Override
     public double getBalance() {
         return 0;
-    }
-
-    @Override
-    public Details getOwnerDetails() {
-        return null;
     }
 }
