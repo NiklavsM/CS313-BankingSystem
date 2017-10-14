@@ -1,10 +1,7 @@
 public interface IAccount {
-    String getAccountType();
+    void addFunds(double amount);
 
+    void subtractFunds(double amount);
     double getBalance();
-
-    void setAccountType(String type);
-
-    void setBalance(double newBalance);
 
 }

@@ -1,31 +1,25 @@
-public class BankAccount implements IAccount {
+public abstract class BankAccount implements IAccount {
 
     private double balance;
-    public BankAccount(){
+    private String accountNumber;
 
-    }
-    @Override
-    public void setAccountType(String type) {
-
-    }
-
-    @Override
-    public void setBalance(double newBalance) {
-
+    public BankAccount(String accountNumber){
+        balance = 0.0;
+        this.accountNumber = accountNumber;
     }
 
-    public BankAccount(double balance) {
-        setAccountType("Bank");
+    public synchronized void addFunds(double extraFunds) {
+        balance = balance + extraFunds;
     }
 
-
-    @Override
-    public String getAccountType() {
-        return null;
+    public synchronized void subtractFunds(double minusFunds) {
+        balance = balance - minusFunds;
     }
 
-    @Override
     public double getBalance() {
-        return 0;
+        return balance;
+    }
+    public String getAccountNumber(){
+        return accountNumber;
     }
 }
