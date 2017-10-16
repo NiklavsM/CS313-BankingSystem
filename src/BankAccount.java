@@ -8,11 +8,11 @@ public abstract class BankAccount implements IAccount {
         this.accountNumber = accountNumber;
     }
 
-    public synchronized void addFunds(double extraFunds) {
+    public void addFunds(double extraFunds) {
         balance = balance + extraFunds;
     }
 
-    public synchronized void subtractFunds(double minusFunds) {
+    public void subtractFunds(double minusFunds) {
         balance = balance - minusFunds;
     }
 
