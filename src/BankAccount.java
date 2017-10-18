@@ -18,11 +18,11 @@ public abstract class BankAccount implements IAccount {
      * @return
      */
     public boolean subtractFunds(double minusFunds) {
-        //TODO: Still need to add checking for accounts with overdraft capability
         if(balance >= minusFunds) {
             balance = balance - minusFunds;
             return true;
         } else {
+            System.out.println("Insufficient funds to subtract funds!");
             return false;
         }
     }
@@ -30,6 +30,9 @@ public abstract class BankAccount implements IAccount {
     public double getBalance() {
         return balance;
     }
+
+    //for use within override methods
+    public void setBalance(double newBalance) {balance = newBalance;}
     public String getAccountNumber(){
         return accountNumber;
     }
