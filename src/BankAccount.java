@@ -12,8 +12,19 @@ public abstract class BankAccount implements IAccount {
         balance = balance + extraFunds;
     }
 
-    public void subtractFunds(double minusFunds) {
-        balance = balance - minusFunds;
+    /**
+     *
+     * @param minusFunds
+     * @return
+     */
+    public boolean subtractFunds(double minusFunds) {
+        //TODO: Still need to add checking for accounts with overdraft capability
+        if(balance >= minusFunds) {
+            balance = balance - minusFunds;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public double getBalance() {

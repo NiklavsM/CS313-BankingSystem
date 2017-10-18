@@ -8,7 +8,7 @@ public class MakeWithdrawalThread extends Thread {
 
     @Override
     public void run() {
-        account.subtractFunds(amount);
-        System.out.println("Witdrawn Thread id: " + Thread.currentThread().getId() + " account balance: " + account.getBalance());
+        boolean success = account.subtractFunds(amount);
+        System.out.println("Witdrawn Thread id: " + Thread.currentThread().getId() + ", successful?: " + success + ", account balance: " + account.getBalance());
     }
 }
