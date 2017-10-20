@@ -34,6 +34,11 @@ public class DriverOne {
          * no user
          * successfully assigned 21 and save
          * already linked between 21 and save
+         * already linked to 21
+         * successfully assigned 21 and joint
+         * already linked 21 and joint
+         * successfully assigned 22 and joint
+         * already linked 22 and joint
          */
         BankingSystemManager bsm = new BankingSystemManager();
         bsm.assignAccount("21", "save");
@@ -44,5 +49,11 @@ public class DriverOne {
         bsm.assignAccount("21", "save");
         bsm.addBankCustomer(new BankCustomer("22"));
         bsm.assignAccount("22", "save");
+        bsm.getAccountManager().addAccount(new JointAccount("joint"));
+        bsm.assignAccount("21","joint");
+        bsm.assignAccount("21","joint");
+        bsm.assignAccount("22","joint");
+        bsm.assignAccount("22","joint");
+
     }
 }
