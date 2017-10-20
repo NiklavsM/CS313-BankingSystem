@@ -26,5 +26,21 @@ public class DriverOne {
         makeWithdrawalThreadS.start();
         mkwiththrS.start();
         //#######################################################################
+
+        // Error checking with BankingSystemManager
+        //Following should output:
+        /**
+         * no account
+         * no user
+         * successfully assigned 21 and save
+         * already linked between 21 and save
+         */
+        BankingSystemManager bsm = new BankingSystemManager();
+        bsm.assignAccount("21", "save");
+        bsm.getAccountManager().addAccount(new SavingAccount("save"));
+        bsm.assignAccount("21", "save");
+        bsm.addBankCustomer(new BankCustomer("21"));
+        bsm.assignAccount("21", "save");
+        bsm.assignAccount("21", "save");
     }
 }

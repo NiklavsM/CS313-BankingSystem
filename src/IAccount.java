@@ -3,5 +3,6 @@ public interface IAccount {
 
     boolean subtractFunds(double amount);
     double getBalance();
+    String getAccountNumber();
 
 }
