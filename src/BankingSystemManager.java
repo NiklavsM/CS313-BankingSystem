@@ -44,7 +44,7 @@ public class BankingSystemManager {
                                 System.out.println("Account is already assigned to that ID!");
                                 return false;
                             } else if (!(line[0].equals(id)) && line[1].equals(accountNumber)) {
-                                System.out.println("Account is already assigned to a different User! ID: " + id + " !");
+                                System.out.println("Account is already assigned to a different User! ID: " + line[0] + " !");
                                 return false;
                             }
                         }

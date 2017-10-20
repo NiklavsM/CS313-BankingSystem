@@ -42,5 +42,7 @@ public class DriverOne {
         bsm.addBankCustomer(new BankCustomer("21"));
         bsm.assignAccount("21", "save");
         bsm.assignAccount("21", "save");
+        bsm.addBankCustomer(new BankCustomer("22"));
+        bsm.assignAccount("22", "save");
     }
 }
