@@ -7,6 +7,8 @@ public class AccountManager {
         bankAccounts.add(account);
     }
 
+    public void removeAccount(IAccount account) { bankAccounts.remove(account); }
+
     /**
      *
      * @param accountNumber
