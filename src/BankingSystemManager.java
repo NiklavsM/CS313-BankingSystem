@@ -87,7 +87,7 @@ public class BankingSystemManager {
 
     }
 
-    public int isJoint(String accountNumber) {
+    private int isJoint(String accountNumber) {
         Class result = accountManager.getAccountType(accountNumber);
         if(result != null) {
             JointAccount ja = new JointAccount("");
