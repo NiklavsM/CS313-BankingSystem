@@ -5,6 +5,10 @@ public class Details {
     private String phone;
     private String address;
 
+    public Details() {
+
+    }
+
 
     public String getName() {
         return name;

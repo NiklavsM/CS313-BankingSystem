@@ -5,6 +5,7 @@ public class SystemUser {
 
     public SystemUser(String id){
         this.id = id;
+        this.details = new Details();
     }
 
     public String getId() {
