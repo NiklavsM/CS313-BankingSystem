@@ -9,8 +9,7 @@ public abstract class BankAccount implements IAccount {
     }
 
     public void addFunds(double extraFunds) {
-        double newBalance = balance + extraFunds;
-        balance = newBalance;
+        balance = balance + extraFunds;
     }
 
     /**
@@ -20,8 +19,7 @@ public abstract class BankAccount implements IAccount {
      */
     public boolean subtractFunds(double minusFunds) {
         if(balance >= minusFunds) {
-            double newBalance = balance - minusFunds;
-            balance = newBalance;
+            balance = balance - minusFunds;
             return true;
         } else {
             System.out.println("Insufficient funds to subtract funds!");
