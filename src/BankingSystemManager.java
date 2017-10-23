@@ -27,6 +27,18 @@ public class BankingSystemManager {
         return accountManager;
     }
 
+
+    /**
+     *
+     * Assigns SystemUsers and BankAccounts to each other.
+     *
+     * Does not allow more than a 1:1 (BankAccount:SystemUser) relationship unless the BankAccount is a JointAccount,
+     * in which it allows 1:M (BankAccount:SystemUser) relationship
+     *
+     * @param id - the ID of the SystemUser
+     * @param accountNumber - the Account Number of the BankAccount
+     * @return - True if assign is successful, False if assign is unsuccessful
+     */
     public boolean assignAccount(String id, String accountNumber) {
         if(accountManager.accountExists(accountNumber)) {
             if(userAccountExists(id)) {
