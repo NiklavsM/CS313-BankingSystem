@@ -113,5 +113,19 @@ public class BankingSystemManager {
         return false;
     }
 
+    //Just for testing
+
+    /**
+     *
+     * @param id - the SystemUser id
+     */
+    public void listBankAccounts(String id) {
+        for(String[] line : assignedAccounts) {
+            if (line[0].equals(id)) {
+                System.out.println("Account Found: " + line[1]);
+            }
+        }
+    }
+
 }
 
