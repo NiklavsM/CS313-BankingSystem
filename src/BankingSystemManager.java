@@ -118,13 +118,17 @@ public class BankingSystemManager {
     /**
      *
      * @param id - the SystemUser id
+     * @return - returns an arraylist containing the accountNumbers that were found.
      */
-    public void listBankAccounts(String id) {
+    public ArrayList<String> listBankAccounts(String id) {
+        ArrayList<String> accNos = new ArrayList<String>();
         for(String[] line : assignedAccounts) {
             if (line[0].equals(id)) {
+                accNos.add(line[1]);
                 System.out.println("Account Found: " + line[1]);
             }
         }
+        return accNos;
     }
 
 }

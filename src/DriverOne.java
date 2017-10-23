@@ -54,7 +54,7 @@ public class DriverOne {
         bsm.assignAccount("21","joint");
         bsm.assignAccount("22","joint");
         bsm.assignAccount("22","joint");
-        bsm.listBankAccounts("21");
+        System.out.println(bsm.listBankAccounts("21"));
 
     }
 }
