@@ -1,0 +1,22 @@
+Week 3 Feedback
+
+Part A
+
+Requirements - 	3 types of accounts
+		Threadsafe including synchronisation
+		Can store accounts at runtime and is threadsafe
+
+Banking system doesn't have to be usuable.
+Coupling doesn't matter
+
+System consists of 3 parts:	Fully synchronisable implementation
+				All runnables
+				Drivers
+
+Part B
+
+Existing implementaion of data structures are OK
+Avoid stop method
+Needs hard-coded tests
+
+Requirements don't need to be submitted - only the UML design
