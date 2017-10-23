@@ -12,13 +12,27 @@ public abstract class BankAccount implements IAccount {
         balance = balance + extraFunds;
     }
 
-    public void subtractFunds(double minusFunds) {
-        balance = balance - minusFunds;
+    /**
+     *
+     * @param minusFunds
+     * @return
+     */
+    public boolean subtractFunds(double minusFunds) {
+        if(balance >= minusFunds) {
+            balance = balance - minusFunds;
+            return true;
+        } else {
+            System.out.println("Insufficient funds to subtract funds!");
+            return false;
+        }
     }
 
     public double getBalance() {
         return balance;
     }
+
+    //for use within override methods
+    public void setBalance(double newBalance) {balance = newBalance;}
     public String getAccountNumber(){
         return accountNumber;
     }

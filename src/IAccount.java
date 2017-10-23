@@ -1,7 +1,8 @@
 public interface IAccount {
     void addFunds(double amount);
 
-    void subtractFunds(double amount);
+    boolean subtractFunds(double amount);
     double getBalance();
+    String getAccountNumber();
 
 }
