@@ -1,10 +1,8 @@
 public class SystemUser {
 
-    private String name;
-    private String email;
-    private String phone;
-    private String address;
+    private Details details;
     private String id;
+
     public SystemUser(String id){
         this.id = id;
     }
@@ -13,35 +11,13 @@ public class SystemUser {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public Details getDetails() {
+        return details;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDetails(Details details) {
+        this.details = details;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }
