@@ -1,7 +1,14 @@
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public abstract class BankAccount implements IAccount {
 
     private double balance;
     private String accountNumber;
+    Lock lock = new ReentrantLock();
+    Condition con = lock.newCondition();
 
     public BankAccount(String accountNumber){
         balance = 0.0;
@@ -9,7 +16,17 @@ public abstract class BankAccount implements IAccount {
     }
 
     public void addFunds(double extraFunds) {
-        balance = balance + extraFunds;
+        Lock lock = new ReentrantLock();
+        lock.lock();
+
+        try {
+            System.out.println("Deposit Thread id: " + Thread.currentThread().getId() +"  Funds to be added: " + extraFunds + " |  balance before: " + balance);
+            balance += extraFunds;
+            System.out.println("Deposit Thread id: " + Thread.currentThread().getId() +" Balance after: " + balance);
+        }
+        finally{
+            lock.unlock();
+        }
     }
 
     /**
@@ -17,14 +34,23 @@ public abstract class BankAccount implements IAccount {
      * @param minusFunds
      * @return
      */
-    public boolean subtractFunds(double minusFunds) {
-        if(balance >= minusFunds) {
+    public void subtractFunds(double minusFunds) throws InterruptedException {
+        boolean stillWaiting = true;
+        lock.lock();
+        try {
+            while (balance < minusFunds) {
+                if(!stillWaiting){
+                    Thread.currentThread().interrupt();
+                }
+                stillWaiting = con.await(3, TimeUnit.SECONDS);
+            }
+            System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() +"  minusFunds : " + minusFunds);
             balance = balance - minusFunds;
-            return true;
-        } else {
-            System.out.println("Insufficient funds to subtract funds!");
-            return false;
+            System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() +"  balance left : " + balance);
+        }  finally{
+            lock.unlock();
         }
+        System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() +"  Finished");
     }
 
     public double getBalance() {

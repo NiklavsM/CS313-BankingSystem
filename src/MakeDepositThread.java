@@ -9,6 +9,5 @@ public class MakeDepositThread extends Thread {
     @Override
     public void run() {
         account.addFunds(amount);
-        System.out.println("Deposit Thread id: " + Thread.currentThread().getId() + " account balance: " + account.getBalance());
     }
 }

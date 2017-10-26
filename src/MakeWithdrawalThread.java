@@ -1,3 +1,4 @@
+
 public class MakeWithdrawalThread extends Thread {
     IAccount account;
     double amount;
@@ -8,7 +9,12 @@ public class MakeWithdrawalThread extends Thread {
 
     @Override
     public void run() {
-        boolean success = account.subtractFunds(amount);
-        System.out.println("Witdrawn Thread id: " + Thread.currentThread().getId() + ", successful?: " + success + ", account balance: " + account.getBalance());
+        try {
+            account.subtractFunds(amount);
+        }
+        catch (InterruptedException ex){
+            System.out.println("Cant wait no longer - withdrawn unsuccessful");
+        }
+        System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() + ", account balance: " + account.getBalance());
     }
 }

@@ -5,9 +5,4 @@ public class CheckingAccount extends BankAccount{
         super(accountNumber);
     }
 
-    @Override
-    public boolean subtractFunds(double minusFunds) {
-            setBalance(getBalance() - minusFunds);
-            return true;
-    }
 }
