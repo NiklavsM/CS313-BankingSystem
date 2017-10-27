@@ -1,13 +1,30 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class AccountManager {
     List<IAccount> bankAccounts = new ArrayList<>();
+    Lock lock = new ReentrantLock();
     public void addAccount(IAccount account){
-        bankAccounts.add(account);
+        lock.lock();
+        try {
+            bankAccounts.add(account);
+        }
+        finally {
+            lock.unlock();
+        }
     }
 
-    public void removeAccount(IAccount account) { bankAccounts.remove(account); }
+    public void removeAccount(IAccount account) {
+        lock.lock();
+        try {
+            bankAccounts.remove(account);
+        }
+        finally {
+            lock.unlock();
+        }
+    }
 
     /**
      *
