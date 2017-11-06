@@ -5,8 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BankAccount implements IAccount {
 
-    private double balance;
-    private String accountNumber;
+    public double balance;
+    public String accountNumber;
     Lock lock = new ReentrantLock();
     Condition con = lock.newCondition();
 
@@ -38,6 +38,7 @@ public abstract class BankAccount implements IAccount {
         boolean stillWaiting = true;
         lock.lock();
         try {
+
             while (balance < minusFunds) {
                 if(!stillWaiting){
                     Thread.currentThread().interrupt();
