@@ -4,5 +4,6 @@ public interface IAccount {
     void subtractFunds(double amount) throws InterruptedException;
     double getBalance();
     String getAccountNumber();
+    public void transferFunds(double transferFunds, IAccount reciever) throws InterruptedException;
 
 }

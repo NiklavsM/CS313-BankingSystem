@@ -8,7 +8,7 @@ public class CheckingAccount extends BankAccount{
 
     public CheckingAccount(String accountNumber) {
         super(accountNumber);
-         }
+    }
 
     public void subtractFunds(double minusFunds) throws InterruptedException {
         boolean stillWaiting = true;

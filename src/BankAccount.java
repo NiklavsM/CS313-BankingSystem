@@ -60,6 +60,27 @@ public abstract class BankAccount implements IAccount {
 
     //for use within override methods
     public void setBalance(double newBalance) {balance = newBalance;}
+
+    public void transferFunds(double transferFunds, IAccount reciever) throws InterruptedException {
+        boolean stillWaiting = true;
+        lock.lock();
+        try {
+            while (balance < transferFunds) {
+                if(!stillWaiting){
+                    Thread.currentThread().interrupt();
+                }
+                stillWaiting = con.await(3, TimeUnit.SECONDS);
+            }
+            System.out.println("Transfer Thread id: " + Thread.currentThread().getId() +"  minusFunds : " + transferFunds);
+            balance = balance - transferFunds;
+            reciever.addFunds(transferFunds);
+            System.out.println("Transfer Thread id: " + Thread.currentThread().getId() +"  balance left : " + balance + ", reciever balance : " + reciever.getBalance());
+        }  finally{
+            lock.unlock();
+        }
+        System.out.println("Transfer Thread id: " + Thread.currentThread().getId() +"  Finished");
+    }
+
     public String getAccountNumber(){
         return accountNumber;
     }
