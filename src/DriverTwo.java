@@ -12,8 +12,10 @@ public class DriverTwo {
         MakeDepositThread makeDepositThread2 = new MakeDepositThread(checkingAccount, 20);
         MakeDepositThread makeDepositThread3 = new MakeDepositThread(checkingAccount, 40);
 
+
         makeDepositThread1.start();
         makeDepositThread2.start();
         makeDepositThread3.start();
+
     }
 }

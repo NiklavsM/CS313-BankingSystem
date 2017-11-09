@@ -5,10 +5,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BankAccount implements IAccount {
 
-    public double balance;
-    public String accountNumber;
-    Lock lock = new ReentrantLock();
-    Condition con = lock.newCondition();
+    private double balance;
+    private String accountNumber;
+    private Lock lock = new ReentrantLock();
+    private Condition con = lock.newCondition();
 
     public BankAccount(String accountNumber){
         balance = 0.0;
@@ -16,7 +16,6 @@ public abstract class BankAccount implements IAccount {
     }
 
     public void addFunds(double extraFunds) {
-        Lock lock = new ReentrantLock();
         lock.lock();
 
         try {
@@ -34,7 +33,7 @@ public abstract class BankAccount implements IAccount {
      * @param minusFunds
      * @return
      */
-    public void subtractFunds(double minusFunds) throws InterruptedException {
+    public boolean subtractFunds(double minusFunds) throws InterruptedException {
         boolean stillWaiting = true;
         lock.lock();
         try {
@@ -52,6 +51,7 @@ public abstract class BankAccount implements IAccount {
             lock.unlock();
         }
         System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() +"  Finished");
+        return true;
     }
 
     public double getBalance() {
@@ -61,6 +61,7 @@ public abstract class BankAccount implements IAccount {
     //for use within override methods
     public void setBalance(double newBalance) {balance = newBalance;}
 
+    /* NMS - I think we dont need this method as it from here we cant ensure thread safety, instead we could make transfer thread use addFunds subtractFunds which will ensure thread safety
     public void transferFunds(double transferFunds, IAccount reciever) throws InterruptedException {
         boolean stillWaiting = true;
         lock.lock();
@@ -80,6 +81,7 @@ public abstract class BankAccount implements IAccount {
         }
         System.out.println("Transfer Thread id: " + Thread.currentThread().getId() +"  Finished");
     }
+    */
 
     public String getAccountNumber(){
         return accountNumber;

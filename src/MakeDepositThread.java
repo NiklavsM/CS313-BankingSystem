@@ -1,6 +1,6 @@
 public class MakeDepositThread extends Thread {
-    IAccount account;
-    double amount;
+    private IAccount account;
+    private double amount;
     public MakeDepositThread(IAccount account, double amount){
         this.account = account;
         this.amount = amount;
