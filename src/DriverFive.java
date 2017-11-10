@@ -10,7 +10,7 @@ public class DriverFive {
         accountManager.addAccount(savingAccount);
         //######################### Checking ########################################
         // Ordinary Tests for Checking
-        MakeDepositThread makeDepositThread1 = new MakeDepositThread(checkingAccount, 50);
+        MakeDepositThread makeDepositThread1 = new MakeDepositThread(checkingAccount, 10);
         MakeDepositThread makeDepositThread2 = new MakeDepositThread(checkingAccount2, 20);
 
         TransferFundsThread transferFundsThread = new TransferFundsThread(checkingAccount,checkingAccount2,12);
@@ -26,6 +26,8 @@ public class DriverFive {
         makeDepositThread3.start();
         transferFundsThread2.start();
         transferFundsThread3.start();
+
+        CreateAccountThread createAccount = new CreateAccountThread(new JointAccount("sdasdasd"),accountManager);
 
         //TODO: Differing results when more than 1 transfer //NMS fixed?
     }
