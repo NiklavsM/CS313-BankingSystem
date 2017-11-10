@@ -1,11 +1,11 @@
-public class Details {
+public class PersonalDetails {
 
     private String name;
     private String email;
     private String phone;
     private String address;
 
-    public Details() {
+    public PersonalDetails() {
 
     }
 

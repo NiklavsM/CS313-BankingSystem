@@ -1,7 +1,7 @@
 public class RemoveAccountThread extends Thread {
-    IAccount account;
-    AccountManager accountManager;
-    public RemoveAccountThread(IAccount accountToAdd, AccountManager manager){
+    private  BankAccount account;
+    private AccountManager accountManager;
+    public RemoveAccountThread(BankAccount accountToAdd, AccountManager manager){
         account = accountToAdd;
         accountManager = manager;
     }

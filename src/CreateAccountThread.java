@@ -1,7 +1,7 @@
 public class CreateAccountThread extends Thread {
-    IAccount account;
-    AccountManager accountManager;
-    public CreateAccountThread(IAccount accountToAdd, AccountManager manager){
+    private BankAccount account;
+    private AccountManager accountManager;
+    public CreateAccountThread(BankAccount accountToAdd, AccountManager manager){
         account = accountToAdd;
         accountManager = manager;
     }

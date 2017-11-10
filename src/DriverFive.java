@@ -2,9 +2,9 @@ public class DriverFive {
     public static void main(String[] args) {
 
         AccountManager accountManager = new AccountManager();
-        IAccount checkingAccount = new CheckingAccount("LV18HABAHA123231213");
-        IAccount checkingAccount2 = new CheckingAccount("OV18HABAHA123231213");
-        IAccount savingAccount = new SavingAccount("njisnjdfnjsndfjnj2434");
+        BankAccount checkingAccount = new CheckingAccount("LV18HABAHA123231213");
+        BankAccount checkingAccount2 = new CheckingAccount("OV18HABAHA123231213");
+        BankAccount savingAccount = new SavingAccount("njisnjdfnjsndfjnj2434");
         accountManager.addAccount(checkingAccount);
         accountManager.addAccount(checkingAccount2);
         accountManager.addAccount(savingAccount);

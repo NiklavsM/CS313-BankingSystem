@@ -2,8 +2,8 @@ public class  DriverOne {
     public static void main(String[] args) {
 
         AccountManager accountManager = new AccountManager();
-        IAccount checkingAccount = new CheckingAccount("LV18HABAHA123231213");
-        IAccount savingAccount = new SavingAccount("njisnjdfnjsndfjnj2434");
+        BankAccount checkingAccount = new CheckingAccount("LV18HABAHA123231213");
+        BankAccount savingAccount = new SavingAccount("njisnjdfnjsndfjnj2434");
         accountManager.addAccount(checkingAccount);
         accountManager.addAccount(savingAccount);
         //######################### Checking ########################################
@@ -29,7 +29,7 @@ public class  DriverOne {
 
         // Error checking with BankingSystemManager
         //Following should output:
-        /**
+        /*
          * no account
          * no user
          * successfully assigned 21 and save

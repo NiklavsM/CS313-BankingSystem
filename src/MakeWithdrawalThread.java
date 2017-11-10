@@ -1,8 +1,8 @@
 
 public class MakeWithdrawalThread extends Thread {
-    private IAccount account;
+    private BankAccount account;
     private double amount;
-    public MakeWithdrawalThread(IAccount account, double amount){
+    public MakeWithdrawalThread(BankAccount account, double amount){
         this.account = account;
         this.amount = amount;
     }
