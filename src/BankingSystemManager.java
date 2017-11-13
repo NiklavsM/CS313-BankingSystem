@@ -131,5 +131,14 @@ public class BankingSystemManager {
         return accNos;
     }
 
+    public boolean isEmployee(String id) {
+        for(BankEmployee bankEmployee : bankEmployees) {
+            if (bankEmployee.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
