@@ -1,0 +1,14 @@
+Check balance must be threadsafe, it must get an accurate balance. Synchronised method signature can be used.
+
+At least one piece of data needs to be sychronised, all data should be threadsafe. Different information needs different locks.
+
+Leave message logs in methods.
+
+2 threads per test.
+
+Layout for test document(for eachpossible outcome for each test):
+Description of what is being tested
+List of hardcoded values
+Description of test
+Expected value
+Actual value
