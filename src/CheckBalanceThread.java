@@ -8,6 +8,6 @@ public class CheckBalanceThread extends Thread {
 
     @Override
     public void run() {
-        System.out.println(bankAccount.getBalance());
+        bankAccount.printBalance();
     }
 }

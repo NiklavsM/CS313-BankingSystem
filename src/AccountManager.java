@@ -11,6 +11,7 @@ public class AccountManager {
         accountLock.lock();
         try {
             bankAccounts.add(account);
+            System.out.println("Account with number: " + account.getAccountNumber() + " has been created. Total number of accounts in account manager is: " + bankAccounts.size());
         } finally {
             accountLock.unlock();
         }
@@ -20,6 +21,7 @@ public class AccountManager {
         accountLock.lock();
         try {
             bankAccounts.remove(account);
+            System.out.println("Account with number: " + account.getAccountNumber() + " has been removed. Total number of accounts in account manager is: " + bankAccounts.size());
         } finally {
             accountLock.unlock();
         }

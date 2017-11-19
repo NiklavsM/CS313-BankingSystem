@@ -11,8 +11,12 @@ public abstract class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public double getBalance() {
+    public synchronized double getBalance() {
         return balance;
+    }
+
+    public synchronized void printBalance() {
+        System.out.println("Accounts : " + accountNumber + " balance is: " + balance);
     }
 
     public void setBalance(double newBalance) {
@@ -22,12 +26,16 @@ public abstract class BankAccount {
     public String getAccountNumber() {
         return accountNumber;
     }
-    public void setAccountHolder(BankCustomer customer){
+
+    public void setAccountHolder(BankCustomer customer) {
         accountHolder = customer;
     }
-    public BankCustomer getAccountHolder(){
+
+    public BankCustomer getAccountHolder() {
         return accountHolder;
     }
+
     public abstract void addFunds(double extraFunds);
+
     public abstract boolean subtractFunds(double minusFunds) throws InterruptedException;
 }
