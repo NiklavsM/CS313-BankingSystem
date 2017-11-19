@@ -11,20 +11,7 @@ public class testSimultaneousDepositCheck {
 
         mdt1.start();
         mdt2.start();
-        try {
-            mdt1.join();
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-
         cbt1.start();
-
-        try {
-            mdt2.join();
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-
         cbt2.start();
     }
 }
