@@ -37,6 +37,7 @@ public class CheckingAccount extends BankAccount{
                 if (!stillWaiting) {
                     Thread.currentThread().interrupt();
                 }
+                System.out.println("Was not enough funds, waits for 3 seconds for funds to become available");
                 stillWaiting = con.await(3, TimeUnit.SECONDS);
             }
             System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() + "  minusFunds : " + minusFunds);
@@ -45,7 +46,6 @@ public class CheckingAccount extends BankAccount{
         } finally {
             fundsLock.unlock();
         }
-        System.out.println("Withdrawn Thread id: " + Thread.currentThread().getId() + "  Finished");
         return true;
     }
 
@@ -53,15 +53,6 @@ public class CheckingAccount extends BankAccount{
         fundsLock.lock();
         try {
             return balance;
-        } finally {
-            fundsLock.unlock();
-        }
-    }
-
-    public void printBalance() {
-        fundsLock.lock();
-        try {
-            System.out.println("Accounts : " + getAccountNumber() + " balance is: " + balance);
         } finally {
             fundsLock.unlock();
         }

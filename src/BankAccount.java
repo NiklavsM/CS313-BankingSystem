@@ -61,7 +61,5 @@ public abstract class BankAccount {
 
     public abstract double getBalance();
 
-    public abstract void printBalance();
-
     public abstract void setBalance(double newBalance);
 }

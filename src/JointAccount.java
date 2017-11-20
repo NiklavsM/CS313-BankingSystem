@@ -5,27 +5,27 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class JointAccount extends CheckingAccount implements IJointAccount {
     private List<BankCustomer> accountHolders = new LinkedList<>();
-    private Lock accountHolderLock = new ReentrantLock();
+    private Lock accountHoldersLock = new ReentrantLock();
 
     public JointAccount(String accountNumber) {
         super(accountNumber);
     }
 
     public void addToAccountHolders(BankCustomer customer) {
-        accountHolderLock.lock();
+        accountHoldersLock.lock();
         try {
             accountHolders.add(customer);
         } finally {
-            accountHolderLock.unlock();
+            accountHoldersLock.unlock();
         }
     }
 
     public void removeFromAccountHolders(BankCustomer customer) {
-        accountHolderLock.lock();
+        accountHoldersLock.lock();
         try {
             accountHolders.remove(customer);
         } finally {
-            accountHolderLock.unlock();
+            accountHoldersLock.unlock();
         }
     }
 
