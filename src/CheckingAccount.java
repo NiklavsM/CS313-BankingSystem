@@ -5,9 +5,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class CheckingAccount extends BankAccount{
 
+    private double balance = 0.0;
     private Lock fundsLock = new ReentrantLock();
     private Condition con = fundsLock.newCondition();
     private double allowedOverdraft = 0;
+    private Lock overdraftLock = new ReentrantLock();
 
 
     public CheckingAccount(String accountNumber) {
@@ -47,8 +49,37 @@ public class CheckingAccount extends BankAccount{
         return true;
     }
 
+    public double getBalance() {
+        fundsLock.lock();
+        try {
+            return balance;
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void printBalance() {
+        fundsLock.lock();
+        try {
+            System.out.println("Accounts : " + getAccountNumber() + " balance is: " + balance);
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void setBalance(double newBalance) {
+        fundsLock.lock();
+        try {
+            balance = newBalance;
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
     public void setOverdraftAllowance(double allowance) {
-        allowedOverdraft = allowance;
+
+            allowedOverdraft = allowance;
+
     }
 
     public double getOverdraftAllowance() {

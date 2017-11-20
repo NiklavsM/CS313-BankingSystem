@@ -1,41 +1,67 @@
-import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BankAccount {
 
-    private double balance;
     private String accountNumber;
     private BankCustomer accountHolder;
+    private Lock accountHolderLock = new ReentrantLock();
+    private Lock accountNumberLock = new ReentrantLock();
+
 
     public BankAccount(String accountNumber) {
-        balance = 0.0;
+
         this.accountNumber = accountNumber;
     }
 
-    public synchronized double getBalance() {
-        return balance;
-    }
-
-    public synchronized void printBalance() {
-        System.out.println("Accounts : " + accountNumber + " balance is: " + balance);
-    }
-
-    public void setBalance(double newBalance) {
-        balance = newBalance;
-    }
 
     public String getAccountNumber() {
-        return accountNumber;
+        accountNumberLock.lock();
+        try {
+            return accountNumber;
+        } finally {
+            accountNumberLock.unlock();
+        }
+    }
+
+
+    public void setAccountNumber(String accountNumber) {
+        accountNumberLock.lock();
+        try {
+            System.out.println("Previous account number: " + this.accountNumber);
+            this.accountNumber = accountNumber;
+            System.out.println("New account number: " + this.accountNumber);
+        } finally {
+            accountNumberLock.unlock();
+        }
     }
 
     public void setAccountHolder(BankCustomer customer) {
-        accountHolder = customer;
+        accountHolderLock.lock();
+        try {
+            accountHolder = customer;
+        } finally {
+            accountHolderLock.unlock();
+        }
     }
 
     public BankCustomer getAccountHolder() {
-        return accountHolder;
+        accountHolderLock.lock();
+        try {
+            return accountHolder;
+        } finally {
+            accountHolderLock.unlock();
+        }
+
     }
 
     public abstract void addFunds(double extraFunds);
 
     public abstract boolean subtractFunds(double minusFunds) throws InterruptedException;
+
+    public abstract double getBalance();
+
+    public abstract void printBalance();
+
+    public abstract void setBalance(double newBalance);
 }

@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SavingAccount extends BankAccount implements IInterestAccumulation {
-
+    private double balance = 0.0;
     private double interestRate = 0;
     private Lock fundsLock = new ReentrantLock();
     private Condition con = fundsLock.newCondition();
@@ -40,6 +40,32 @@ public class SavingAccount extends BankAccount implements IInterestAccumulation 
         }
     }
 
+    public double getBalance() {
+        fundsLock.lock();
+        try {
+            return balance;
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void printBalance() {
+        fundsLock.lock();
+        try {
+            System.out.println("Accounts : " + getAccountNumber() + " balance is: " + balance);
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void setBalance(double newBalance) {
+        fundsLock.lock();
+        try {
+            balance = newBalance;
+        } finally {
+            fundsLock.unlock();
+        }
+    }
     public boolean subtractFunds(double minusFunds) throws InterruptedException {
         boolean stillWaiting = true;
 

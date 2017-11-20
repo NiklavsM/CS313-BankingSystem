@@ -10,7 +10,6 @@ public class TransferFundsThread extends Thread {
         this.amount = amount;
     }
 
-    //FIXME: Probably a better way of doing this - only works for 2 transfers currently// NMS I think its fixed now.
     @Override
     public void run() {
 

@@ -6,9 +6,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class CoDAccount extends BankAccount implements IInterestAccumulation {
-    Calendar untilDate;
-    Lock fundsLock = new ReentrantLock();
-    Condition con = fundsLock.newCondition();
+    private double balance = 0.0;
+    private Calendar untilDate;
+    private Lock fundsLock = new ReentrantLock();
+    private Condition con = fundsLock.newCondition();
     private double interestRate = 0;
 
     public CoDAccount(String accountNumber, int yearUntil, int monthUntil, int dayUntil) {
@@ -62,6 +63,33 @@ public class CoDAccount extends BankAccount implements IInterestAccumulation {
     }
     public void setInterestRate(double interest){
         interestRate = interest;
+    }
+
+    public double getBalance() {
+        fundsLock.lock();
+        try {
+            return balance;
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void printBalance() {
+        fundsLock.lock();
+        try {
+            System.out.println("Accounts : " + getAccountNumber() + " balance is: " + balance);
+        } finally {
+            fundsLock.unlock();
+        }
+    }
+
+    public void setBalance(double newBalance) {
+        fundsLock.lock();
+        try {
+            balance = newBalance;
+        } finally {
+            fundsLock.unlock();
+        }
     }
 
 
