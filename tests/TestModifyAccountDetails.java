@@ -1,4 +1,4 @@
-public class testModifyAccountDetails {
+public class TestModifyAccountDetails {
     public static void main(String[] args) {
         //Set up
         JointAccount ja1 = new JointAccount("123");

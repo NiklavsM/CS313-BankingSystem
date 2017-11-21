@@ -9,7 +9,6 @@ public class CheckingAccount extends BankAccount{
     private Lock fundsLock = new ReentrantLock();
     private Condition con = fundsLock.newCondition();
     private double allowedOverdraft = 0;
-    private Lock overdraftLock = new ReentrantLock();
 
 
     public CheckingAccount(String accountNumber) {

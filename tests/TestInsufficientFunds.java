@@ -1,4 +1,4 @@
-public class testInsufficientFunds {
+public class TestInsufficientFunds {
 
     public static void main(String[] args) {
         //Set up

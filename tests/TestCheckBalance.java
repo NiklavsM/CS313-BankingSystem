@@ -1,4 +1,4 @@
-public class testCheckBalance {
+public class TestCheckBalance {
 
     public static void main(String[] args) {
         //Set up
